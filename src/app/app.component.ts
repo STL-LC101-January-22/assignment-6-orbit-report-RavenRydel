@@ -21,9 +21,9 @@ export class AppComponent {
 			response.json().then(function (data) {
 
 				let fetchedSatellites = data.satellites;
-				// loop over satellites
+				// loop over satellites; fetchedSatellites is an array of objects
 				for(let i=0; i < fetchedSatellites.length; i++) {
-					// create a Satellite object 
+					// create a Satellite object with objects inside of it
 					let satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational);
 					// add the new Satellite object to sourceList 
 					this.sourceList.push(satellite);
@@ -51,5 +51,5 @@ export class AppComponent {
 		this.displayList = matchingSatellites;
 	}
 
-
 }
+
